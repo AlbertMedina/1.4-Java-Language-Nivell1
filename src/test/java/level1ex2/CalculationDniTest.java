@@ -1,5 +1,6 @@
 package level1ex2;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -7,6 +8,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class CalculationDniTest {
 
@@ -29,5 +31,25 @@ public class CalculationDniTest {
                 Arguments.of(10305070, 'N'),
                 Arguments.of(98765432, 'M')
         );
+    }
+
+    @Test
+    void checkCalculateDNILetterNegativeNumber() {
+        try {
+            CalculationDni.calculateDNILetter(-1);
+            fail("IllegalArgumentException not thrown.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
+    @Test
+    void checkCalculateDNILetterTooLargeNumber() {
+        try {
+            CalculationDni.calculateDNILetter(111111111);
+            fail("IllegalArgumentException not thrown.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

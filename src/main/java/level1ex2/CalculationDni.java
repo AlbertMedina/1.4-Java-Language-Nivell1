@@ -8,19 +8,10 @@ public class CalculationDni {
     }
 
     public static char calculateDNILetter(long dniNumber) {
-        char dniLetter = ' ';
-        try {
-            if (dniNumber < 0 || dniNumber > 99999999) {
-                throw new IllegalArgumentException("A DNI number must be between 0 and 99999999.");
-            }
-
-            int index = (int) (dniNumber % 23);
-            dniLetter = DNI_LETTERS.charAt(index);
-
-        } catch (IllegalArgumentException e) {
-            System.out.println("Invalid DNI number: " + e.getMessage());
+        if (dniNumber < 0 || dniNumber > 99999999) {
+            throw new IllegalArgumentException("A DNI number must be between 0 and 99999999.");
         }
-
-        return dniLetter;
+        int index = (int) (dniNumber % 23);
+        return DNI_LETTERS.charAt(index);
     }
 }
