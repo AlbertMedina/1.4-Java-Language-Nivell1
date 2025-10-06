@@ -10,8 +10,8 @@ public class CalculationDni {
     public static char calculateDNILetter(long dniNumber) {
         char dniLetter = ' ';
         try {
-            if (String.valueOf(dniNumber).length() != 8) {
-                throw new IllegalArgumentException("A DNI number must have 8 digits.");
+            if (dniNumber < 0 || dniNumber > 99999999) {
+                throw new IllegalArgumentException("A DNI number must be between 0 and 99999999.");
             }
 
             int index = (int) (dniNumber % 23);
