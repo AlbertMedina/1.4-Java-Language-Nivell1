@@ -17,14 +17,20 @@ public class BooksManager {
     }
 
     public void addBook(String title, String author, int numberOfPages) {
+        Book newBook;
         try {
-            if (books.contains(new Book(title, author, numberOfPages))) {
-                throw new IllegalArgumentException("This book is already on the library.");
-            }
-            books.add(new Book(title, author, numberOfPages));
+            newBook = new Book(title, author, numberOfPages);
         } catch (IllegalArgumentException e) {
             System.out.println("Error adding book: " + e.getMessage());
+            return;
         }
+
+        if (books.contains(newBook)) {
+            System.out.println("This book is already on the library.");
+            return;
+        }
+
+        books.add(newBook);
     }
 
     public Book getBookAtIndex(int index) {
@@ -40,15 +46,11 @@ public class BooksManager {
     }
 
     public void removeBookByTitle(String title) {
-        try {
-            Book book = books.stream().filter(b -> b.getTitle().equalsIgnoreCase(title)).findFirst().orElse(null);
-            if (book == null) {
-                throw new IllegalArgumentException("This book is not in the library.");
-            }
-            books.remove(book);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error removing book: " + e.getMessage());
+        Book book = books.stream().filter(b -> b.getTitle().equalsIgnoreCase(title)).findFirst().orElse(null);
+        if (book == null) {
+            throw new IllegalArgumentException("This book is not in the library.");
         }
+        books.remove(book);
     }
 
     public void sortBooksAlphabetically() {
