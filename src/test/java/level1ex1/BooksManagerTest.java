@@ -8,17 +8,15 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class BooksManagerTest {
 
-    private BooksManager booksManager;
-
     @Test
     void checkCreateBooksManager() {
-        booksManager = new BooksManager();
+        BooksManager booksManager = new BooksManager();
         assertNotNull(booksManager);
     }
 
     @Test
     void checkAddBooks() {
-        booksManager = new BooksManager();
+        BooksManager booksManager = new BooksManager();
         booksManager.addBook("Marina", "Carlos Ruiz Zafón", 304);
         booksManager.addBook("El Juego del Alma", "Javier Castillo", 528);
         booksManager.addBook("La Grieta del Silencio", "Javier Castillo", 448);
@@ -27,7 +25,7 @@ public class BooksManagerTest {
 
     @Test
     void checkBookIndex() {
-        booksManager = new BooksManager();
+        BooksManager booksManager = new BooksManager();
         booksManager.addBook("Marina", "Carlos Ruiz Zafón", 304);
         booksManager.addBook("El Juego del Alma", "Javier Castillo", 528);
         booksManager.addBookAtIndex(1, "La Grieta del Silencio", "Javier Castillo", 448);
@@ -36,7 +34,7 @@ public class BooksManagerTest {
 
     @Test
     void checkNoDuplicates() {
-        booksManager = new BooksManager();
+        BooksManager booksManager = new BooksManager();
         booksManager.addBook("Marina", "Carlos Ruiz Zafón", 304);
         booksManager.addBook("MARINA", "Carlos Ruiz Zafón", 304);
         booksManager.addBook("marina", "Carlos Ruiz Zafón", 304);
@@ -45,7 +43,7 @@ public class BooksManagerTest {
 
     @Test
     void checkGetBookByIndex() {
-        booksManager = new BooksManager();
+        BooksManager booksManager = new BooksManager();
         booksManager.addBook("Marina", "Carlos Ruiz Zafón", 304);
         booksManager.addBook("El Juego del Alma", "Javier Castillo", 528);
         booksManager.addBook("La Grieta del Silencio", "Javier Castillo", 448);
@@ -54,7 +52,7 @@ public class BooksManagerTest {
 
     @Test
     void checkBooksAfterAdd() {
-        booksManager = new BooksManager();
+        BooksManager booksManager = new BooksManager();
         int booksListSize = booksManager.getBooksList().size();
         booksManager.addBook("Marina", "Carlos Ruiz Zafón", 304);
         assertNotEquals(booksListSize, booksManager.getBooksList().size());
@@ -62,7 +60,7 @@ public class BooksManagerTest {
 
     @Test
     void checkBooksAfterRemove() {
-        booksManager = new BooksManager();
+        BooksManager booksManager = new BooksManager();
         booksManager.addBook("Marina", "Carlos Ruiz Zafón", 304);
         booksManager.addBook("El Juego del Alma", "Javier Castillo", 528);
         booksManager.addBook("La Grieta del Silencio", "Javier Castillo", 448);
@@ -73,7 +71,7 @@ public class BooksManagerTest {
 
     @Test
     void checkAlphabeticalOrder() {
-        booksManager = new BooksManager();
+        BooksManager booksManager = new BooksManager();
         booksManager.addBook("Marina", "Carlos Ruiz Zafón", 304);
         booksManager.addBook("El Juego del Alma", "Javier Castillo", 528);
         booksManager.addBook("La Grieta del Silencio", "Javier Castillo", 448);
