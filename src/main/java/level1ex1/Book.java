@@ -1,0 +1,44 @@
+package level1ex1;
+
+public class Book {
+
+    private String title;
+    private String author;
+    private int numberOfPages;
+
+    public Book(String title, String author, int numberOfPages){
+
+        if (title == null || title.trim().isEmpty()) {
+            throw new IllegalArgumentException("Invalid title");
+        }
+
+        if (author == null || author.trim().isEmpty()) {
+            throw new IllegalArgumentException("Invalid author");
+        }
+
+        if (numberOfPages <= 0) {
+            throw new IllegalArgumentException("Invalid number of pages");
+        }
+
+        this.title = title.trim();
+        this.author = author.trim();
+        this.numberOfPages = numberOfPages;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getNumberOfPages() {
+        return numberOfPages;
+    }
+
+    @Override
+    public String toString(){
+        return "'" + title + "', by " + author + " (" + numberOfPages + ")";
+    }
+}
