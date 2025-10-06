@@ -18,7 +18,7 @@ public class BooksManager {
 
     public void addBook(String title, String author, int numberOfPages) {
         try {
-            if (books.stream().anyMatch(b -> b.getTitle().equalsIgnoreCase(title))) {
+            if (books.contains(new Book(title, author, numberOfPages))) {
                 throw new IllegalArgumentException("This book is already on the library.");
             }
             books.add(new Book(title, author, numberOfPages));
@@ -41,39 +41,17 @@ public class BooksManager {
 
     public void removeBookByTitle(String title) {
         try {
-            Book book = getBookByTitle(title);
-
+            Book book = books.stream().filter(b -> b.getTitle().equalsIgnoreCase(title)).findFirst().orElse(null);
             if (book == null) {
                 throw new IllegalArgumentException("This book is not in the library.");
             }
-
             books.remove(book);
         } catch (IllegalArgumentException e) {
             System.out.println("Error removing book: " + e.getMessage());
         }
     }
 
-    public int getBookIndex(String title) {
-        try {
-            Book book = getBookByTitle(title);
-
-            if (book == null) {
-                throw new IllegalArgumentException("This book is not in the library.");
-            }
-
-            return books.indexOf(book);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error getting book by index: " + e.getMessage());
-        }
-
-        return -1;
-    }
-
     public void sortBooksAlphabetically() {
         books.sort(Comparator.comparing(Book::getTitle));
-    }
-
-    private Book getBookByTitle(String title) {
-        return books.stream().filter(b -> b.getTitle().equalsIgnoreCase(title)).findFirst().orElse(null);
     }
 }

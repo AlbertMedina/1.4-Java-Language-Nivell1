@@ -31,7 +31,7 @@ public class BooksManagerTest {
         booksManager.addBook("Marina", "Carlos Ruiz Zafón", 304);
         booksManager.addBook("El Juego del Alma", "Javier Castillo", 528);
         booksManager.addBookAtIndex(1, "La Grieta del Silencio", "Javier Castillo", 448);
-        assertEquals(1, booksManager.getBookIndex("La Grieta del Silencio"));
+        assertEquals(1, booksManager.getBooksList().indexOf(new Book("La Grieta del Silencio", "Javier Castillo", 448)));
     }
 
     @Test
@@ -78,11 +78,11 @@ public class BooksManagerTest {
         booksManager.addBook("El Juego del Alma", "Javier Castillo", 528);
         booksManager.addBook("La Grieta del Silencio", "Javier Castillo", 448);
         booksManager.sortBooksAlphabetically();
-        assertEquals(0, booksManager.getBookIndex("El Juego del Alma"));
-        assertEquals(1, booksManager.getBookIndex("La Grieta del Silencio"));
-        assertEquals(2, booksManager.getBookIndex("Marina"));
+        assertEquals(0, booksManager.getBooksList().indexOf(new Book("El Juego del Alma", "Javier Castillo", 528)));
+        assertEquals(1, booksManager.getBooksList().indexOf(new Book("La Grieta del Silencio", "Javier Castillo", 448)));
+        assertEquals(2, booksManager.getBooksList().indexOf(new Book("Marina", "Carlos Ruiz Zafón", 304)));
         booksManager.removeBookByTitle("La Grieta del Silencio");
-        assertEquals(0, booksManager.getBookIndex("El Juego del Alma"));
-        assertEquals(1, booksManager.getBookIndex("Marina"));
+        assertEquals(0, booksManager.getBooksList().indexOf(new Book("El Juego del Alma", "Javier Castillo", 528)));
+        assertEquals(1, booksManager.getBooksList().indexOf(new Book("Marina", "Carlos Ruiz Zafón", 304)));
     }
 }
