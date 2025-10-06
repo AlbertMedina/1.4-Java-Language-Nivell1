@@ -1,9 +1,9 @@
 package level3;
 
-import level1ex1.BooksManager;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class CalculatorTest {
 
@@ -42,8 +42,8 @@ public class CalculatorTest {
         assertEquals(4.5, Calculator.division(9.0, 2.0), 0.0001);
         assertEquals(4.5, Calculator.division(-9.0, -2.0), 0.0001);
         assertEquals(-4.5, Calculator.division(9.0, -2.0), 0.0001);
-        assertEquals(0.0, Calculator.division(1.0, 0.0), 0.0001);
         assertEquals(0.0, Calculator.division(0.0, 1.0), 0.0001);
-        assertEquals(0.0, Calculator.division(0.0, 0.0), 0.0001);
+        assertThrows(ArithmeticException.class, () -> Calculator.division(1.0, 0.0));
+        assertThrows(ArithmeticException.class, () -> Calculator.division(0.0, 0.0));
     }
 }
