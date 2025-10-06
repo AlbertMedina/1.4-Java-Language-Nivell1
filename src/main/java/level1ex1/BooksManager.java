@@ -1,6 +1,7 @@
 package level1ex1;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class BooksManager {
@@ -11,7 +12,7 @@ public class BooksManager {
         books = new ArrayList<>();
     }
 
-    public List<Book> getBooks() {
+    public List<Book> getBooksList() {
         return books;
     }
 
@@ -40,7 +41,7 @@ public class BooksManager {
 
     public void removeBookByTitle(String title) {
         try {
-            Book book = books.stream().filter(b -> b.getTitle().equalsIgnoreCase(title)).findFirst().orElse(null);
+            Book book = getBookByTitle(title);
 
             if (book == null) {
                 throw new IllegalArgumentException("This book is not in the library.");
@@ -50,5 +51,29 @@ public class BooksManager {
         } catch (IllegalArgumentException e) {
             System.out.println("Error removing book: " + e.getMessage());
         }
+    }
+
+    public int getBookIndex(String title) {
+        try {
+            Book book = getBookByTitle(title);
+
+            if (book == null) {
+                throw new IllegalArgumentException("This book is not in the library.");
+            }
+
+            return books.indexOf(book);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error getting book by index: " + e.getMessage());
+        }
+
+        return -1;
+    }
+
+    public void sortBooksAlphabetically() {
+        books.sort(Comparator.comparing(Book::getTitle));
+    }
+
+    private Book getBookByTitle(String title) {
+        return books.stream().filter(b -> b.getTitle().equalsIgnoreCase(title)).findFirst().orElse(null);
     }
 }
