@@ -18,13 +18,13 @@ public class CalculatorTest {
     }
 
     @Test
-    void checkSubstraction() {
-        assertEquals(5.8, Calculator.substraction(12.2, 6.4), 0.0001);
-        assertEquals(-5.8, Calculator.substraction(-12.2, -6.4), 0.0001);
-        assertEquals(18.6, Calculator.substraction(12.2, -6.4), 0.0001);
-        assertEquals(1.0, Calculator.substraction(1.0, 0.0), 0.0001);
-        assertEquals(-1.0, Calculator.substraction(0.0, 1.0), 0.0001);
-        assertEquals(0.0, Calculator.substraction(0.0, 0.0), 0.0001);
+    void checkSubtraction() {
+        assertEquals(5.8, Calculator.subtraction(12.2, 6.4), 0.0001);
+        assertEquals(-5.8, Calculator.subtraction(-12.2, -6.4), 0.0001);
+        assertEquals(18.6, Calculator.subtraction(12.2, -6.4), 0.0001);
+        assertEquals(1.0, Calculator.subtraction(1.0, 0.0), 0.0001);
+        assertEquals(-1.0, Calculator.subtraction(0.0, 1.0), 0.0001);
+        assertEquals(0.0, Calculator.subtraction(0.0, 0.0), 0.0001);
     }
 
     @Test
