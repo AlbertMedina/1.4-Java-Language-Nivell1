@@ -2,9 +2,6 @@ package level3;
 
 public class Calculator {
 
-    public Calculator() {
-    }
-
     public static double sum(double a, double b) {
         return a + b;
     }
