@@ -13,7 +13,7 @@ public class BooksManager {
     }
 
     public List<Book> getBooksList() {
-        return books;
+        return List.copyOf(books);
     }
 
     public void addBook(String title, String author, int numberOfPages) {
