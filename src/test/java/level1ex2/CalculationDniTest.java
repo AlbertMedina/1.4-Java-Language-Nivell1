@@ -14,7 +14,7 @@ public class CalculationDniTest {
 
     @ParameterizedTest
     @MethodSource("dniNumbersAndLetters")
-    void checkCalculateDNILetter(long dniNumber, char dniLetter) {
+    void shouldCalculateDniLetterProperly(long dniNumber, char dniLetter) {
         assertEquals(dniLetter, CalculationDni.calculateDNILetter(dniNumber));
     }
 
@@ -34,7 +34,7 @@ public class CalculationDniTest {
     }
 
     @Test
-    void checkCalculateDNILetterNegativeNumber() {
+    void shouldThrowExceptionWithNegativeDniNumber() {
         try {
             CalculationDni.calculateDNILetter(-1);
             fail("IllegalArgumentException not thrown.");
@@ -44,7 +44,7 @@ public class CalculationDniTest {
     }
 
     @Test
-    void checkCalculateDNILetterTooLargeNumber() {
+    void shouldThrowExceptionWithTooHighDniNumber() {
         try {
             CalculationDni.calculateDNILetter(111111111);
             fail("IllegalArgumentException not thrown.");

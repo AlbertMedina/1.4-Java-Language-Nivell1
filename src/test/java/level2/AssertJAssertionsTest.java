@@ -10,7 +10,7 @@ import static org.assertj.core.api.Assertions.assertThatIndexOutOfBoundsExceptio
 public class AssertJAssertionsTest {
 
     @Test
-    public void checkValuesAreEqual() {
+    public void shouldValuesBeEqual() {
         int a = 1;
         int b = 1;
         int c = 2;
@@ -19,7 +19,7 @@ public class AssertJAssertionsTest {
     }
 
     @Test
-    public void checkObjectsAreEqual() {
+    public void shouldObjectsBeEqual() {
         String a = "Hello";
         String b = "Hello";
         String c = "Welcome";
@@ -28,14 +28,14 @@ public class AssertJAssertionsTest {
     }
 
     @Test
-    public void checkArraysAreEqual() {
+    public void shouldArraysBeEqual() {
         int[] a = {1, 2, 3};
         int[] b = {1, 2, 3};
         assertThat(a).isEqualTo(b);
     }
 
     @Test
-    public void checkListContent() {
+    public void shouldListContainCorrectValues() {
         String myString = "Albert";
         Character myChar = 'A';
         Boolean myBoolean = true;
@@ -48,7 +48,7 @@ public class AssertJAssertionsTest {
     }
 
     @Test
-    public void checkMapKeys() {
+    public void shouldMapContainKey() {
         Map<String, Integer> myGrades = new HashMap<>();
         myGrades.put("English", 8);
         myGrades.put("History", 10);
@@ -57,13 +57,13 @@ public class AssertJAssertionsTest {
     }
 
     @Test
-    public void checkArrayIndexOutOfBoundsException() {
+    public void shouldThrowArrayIndexOutOfBoundsException() {
         assertThatIndexOutOfBoundsException()
                 .isThrownBy(() -> AssertJAssertions.getNumberName(8));
     }
 
     @Test
-    public void checkEmptyOptional() {
+    public void shouldOptionalBeEmpty() {
         Optional<String> myOptional = Optional.empty();
         assertThat(myOptional).isEmpty();
     }
