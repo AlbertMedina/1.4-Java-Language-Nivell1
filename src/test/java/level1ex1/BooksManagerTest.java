@@ -7,13 +7,13 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BooksManagerTest {
 
     @Test
-    void checkBooksManagerNotNull() {
+    void shouldBooksManagerNotBeNull() {
         BooksManager booksManager = new BooksManager();
         assertNotNull(booksManager);
     }
 
     @Test
-    void checkAddBooks() {
+    void shouldAddBooks() {
         BooksManager booksManager = new BooksManager();
         booksManager.addBook(new Book("Marina", "Carlos Ruiz Zafón", 304));
         booksManager.addBook(new Book("El Juego del Alma", "Javier Castillo", 528));
@@ -22,7 +22,7 @@ public class BooksManagerTest {
     }
 
     @Test
-    void checkBookIndex() {
+    void shouldAddBookAtGivenIndex() {
         BooksManager booksManager = new BooksManager();
         booksManager.addBook(new Book("Marina", "Carlos Ruiz Zafón", 304));
         booksManager.addBook(new Book("El Juego del Alma", "Javier Castillo", 528));
@@ -31,7 +31,7 @@ public class BooksManagerTest {
     }
 
     @Test
-    void checkNoDuplicates() {
+    void shouldNotAddMoreThanOneBookWithSameTitle() {
         BooksManager booksManager = new BooksManager();
         booksManager.addBook(new Book("Marina", "Carlos Ruiz Zafón", 304));
         assertThrows(IllegalArgumentException.class, () -> booksManager.addBook(new Book("MARINA", "Carlos Ruiz Zafón", 304)));
@@ -40,7 +40,7 @@ public class BooksManagerTest {
     }
 
     @Test
-    void checkGetBookByIndex() {
+    void shouldReturnCorrectBookAtGivenIndex() {
         BooksManager booksManager = new BooksManager();
         booksManager.addBook(new Book("Marina", "Carlos Ruiz Zafón", 304));
         booksManager.addBook(new Book("El Juego del Alma", "Javier Castillo", 528));
@@ -49,7 +49,7 @@ public class BooksManagerTest {
     }
 
     @Test
-    void checkBooksAfterAdd() {
+    void shouldIncreaseBookListSizeWhenBookIsAdded() {
         BooksManager booksManager = new BooksManager();
         int booksListSize = booksManager.getBooksList().size();
         booksManager.addBook(new Book("Marina", "Carlos Ruiz Zafón", 304));
@@ -57,7 +57,7 @@ public class BooksManagerTest {
     }
 
     @Test
-    void checkBooksAfterRemove() {
+    void shouldDecreaseBookListSizeWhenBookIsAdded() {
         BooksManager booksManager = new BooksManager();
         booksManager.addBook(new Book("Marina", "Carlos Ruiz Zafón", 304));
         booksManager.addBook(new Book("El Juego del Alma", "Javier Castillo", 528));
@@ -68,7 +68,7 @@ public class BooksManagerTest {
     }
 
     @Test
-    void checkAlphabeticalOrder() {
+    void shouldOrderBooksAlphabeticallyByTitle() {
         BooksManager booksManager = new BooksManager();
         booksManager.addBook(new Book("Marina", "Carlos Ruiz Zafón", 304));
         booksManager.addBook(new Book("El Juego del Alma", "Javier Castillo", 528));

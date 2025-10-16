@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 public class CalculatorTest {
 
     @Test
-    void checkSum() {
+    void shouldSumWorkProperly() {
         assertEquals(3.7, Calculator.sum(2.5, 1.2), 0.0001);
         assertEquals(-3.7, Calculator.sum(-2.5, -1.2), 0.0001);
         assertEquals(1.3, Calculator.sum(2.5, -1.2), 0.0001);
@@ -18,7 +18,7 @@ public class CalculatorTest {
     }
 
     @Test
-    void checkSubtraction() {
+    void shouldSubtractionWorkProperly() {
         assertEquals(5.8, Calculator.subtraction(12.2, 6.4), 0.0001);
         assertEquals(-5.8, Calculator.subtraction(-12.2, -6.4), 0.0001);
         assertEquals(18.6, Calculator.subtraction(12.2, -6.4), 0.0001);
@@ -28,7 +28,7 @@ public class CalculatorTest {
     }
 
     @Test
-    void checkMultiplication() {
+    void shouldMultiplicationWorkProperly() {
         assertEquals(7.7, Calculator.multiplication(3.5, 2.2), 0.0001);
         assertEquals(7.7, Calculator.multiplication(-3.5, -2.2), 0.0001);
         assertEquals(-7.7, Calculator.multiplication(-3.5, 2.2), 0.0001);
@@ -38,7 +38,7 @@ public class CalculatorTest {
     }
 
     @Test
-    void checkDivision() {
+    void shouldDivisionWorkProperly() {
         assertEquals(4.5, Calculator.division(9.0, 2.0), 0.0001);
         assertEquals(4.5, Calculator.division(-9.0, -2.0), 0.0001);
         assertEquals(-4.5, Calculator.division(9.0, -2.0), 0.0001);
