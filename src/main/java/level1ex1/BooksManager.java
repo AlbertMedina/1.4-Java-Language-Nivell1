@@ -6,7 +6,7 @@ import java.util.List;
 
 public class BooksManager {
 
-    private List<Book> books;
+    private final List<Book> books;
 
     public BooksManager() {
         books = new ArrayList<>();
@@ -16,33 +16,28 @@ public class BooksManager {
         return List.copyOf(books);
     }
 
-    public void addBook(String title, String author, int numberOfPages) {
-        Book newBook;
-        try {
-            newBook = new Book(title, author, numberOfPages);
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error adding book: " + e.getMessage());
-            return;
+    public void addBook(Book book) {
+        if (book == null){
+            throw new NullPointerException("Cannot add a null book.");
         }
-
-        if (books.contains(newBook)) {
-            System.out.println("This book is already on the library.");
-            return;
+        if (books.contains(book)) {
+            throw new IllegalArgumentException("This book is already on the library.");
         }
-
-        books.add(newBook);
+        books.add(book);
     }
 
     public Book getBookAtIndex(int index) {
         return books.get(index);
     }
 
-    public void addBookAtIndex(int index, String title, String author, int numberOfPages) {
-        try {
-            books.add(index, new Book(title, author, numberOfPages));
-        } catch (IllegalArgumentException e) {
-            System.out.println("Error adding book: " + e.getMessage());
+    public void addBookAtIndex(int index, Book book) {
+        if (book == null){
+            throw new NullPointerException("Cannot add a null book.");
         }
+        if (books.contains(book)) {
+            throw new IllegalArgumentException("This book is already on the library.");
+        }
+        books.add(index, book);
     }
 
     public void removeBookByTitle(String title) {
