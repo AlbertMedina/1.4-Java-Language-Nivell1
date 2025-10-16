@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class BooksManagerTest {
 
     @Test
-    void checkCreateBooksManager() {
+    void checkBooksManagerNotNull() {
         BooksManager booksManager = new BooksManager();
         assertNotNull(booksManager);
     }
